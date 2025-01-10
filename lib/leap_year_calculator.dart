@@ -1,13 +1,13 @@
 class LeapYearCalculator {
   bool isLeapYear(int year) {
-    if (_isDivisibleByFour(year)) {
+    if (_isDivisibleBy(year, 4) && (!_isDivisibleBy(year, 100) || _isDivisibleBy(year, 400))) {
       return true;
     } else {
       return false;
     }
   }
 
-  bool _isDivisibleByFour(int year) {
-    return year % 4 == 0;
+  bool _isDivisibleBy(int year, int divisor) {
+    return year % divisor == 0;
   }
 }
